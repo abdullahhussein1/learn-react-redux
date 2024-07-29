@@ -1,21 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-} from "./features/counter/counterSlice";
-import { useState } from "react";
+import { decrement, incrementAsync } from "./features/counter/counterSlice";
 import AnimatedNumber from "react-animated-numbers";
 
 function App() {
   const count = useSelector((state) => state.counter.value);
-  const [incrementAmount, setIncrementAmount] = useState();
   const dispatch = useDispatch();
 
   return (
     <div className="relative grid h-screen grid-rows-1 grid-cols-2">
       <button
-        onClick={() => dispatch(increment())}
+        onClick={() => dispatch(incrementAsync())}
         className="flex text-9xl text-white justify-center items-center bg-gradient-to-r from-blue-500  to-cyan-400 active:brightness-105"
       >
         +
